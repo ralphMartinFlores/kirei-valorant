@@ -1,0 +1,24 @@
+.skins__container__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    gap: 1rem;
+}
+.skins__container {
+    background-color: #0D1820;
+    padding: 1rem;
+    border-radius: 8px;
+    h1 {
+        color: white;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 32px;
+        letter-spacing: 1px;
+    }
+}
+.modal-content {
+    background-color: #0D1820;
+    h1 {
+        color: #FFF;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 32px;
+    }
+}

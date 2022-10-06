@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="bundles__container__grid">
+        <ng-container *ngFor="let bundle of bundles_array">
+            <ng-container *ngIf="bundle.verticalPromoImage != null">
+                <div class="bundles__container">
+                    <picture>
+                        <source media="(min-width:1201px)" srcset="{{ bundle.verticalPromoImage }}">
+                        <img src="{{ bundle.displayIcon2 }}" alt="">
+                    </picture>
+                    <!-- <img src="{{ bundle.verticalPromoImage }}" alt=""> -->
+                    <h1 class="mb-0 p-4">{{ bundle.description }}</h1>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
+        <h1>Maps</h1>
+        <input [(ngModel)]="term" type="text" placeholder="Enter Map name here">
+    </div>
+    <div class="map__container__grid">
+        <ng-container *ngFor="let map of maps_array | filter:term">
+            <div class="map__container">
+                <img src="{{ map.listViewIcon }}" alt="">
+                <div class="p-3">
+                    <h1>{{ map.displayName }}</h1>
+                    <p class="mb-4">{{ map.coordinates }}</p>
+                    <button (click)="getSingleMap(map.uuid)">View Details</button>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<div class="container">
+    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content" *ngFor="let map_info of single_map_array">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel">{{ map_info.displayName }}</h1>
+            </div>
+            <div class="modal-body">
+                <div>
+                  <img src="{{ map_info.splash }}" alt="">
+                </div>
+                <h1 class="mt-4">Callouts</h1>
+                <div class="callout__container__grid">
+                    <ng-container *ngFor="let callout of map_info.callouts">
+                        <div class="callout__container d-flex justify-content-between align-items-center">
+                            <p class="mb-0">{{ callout.regionName }}</p>
+                            <p class="mb-0 text-end">Can be found at {{ callout.superRegionName }}</p>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" data-bs-dismiss="modal" (click)="closeSingleAgentModal()">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

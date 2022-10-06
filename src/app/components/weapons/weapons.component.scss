@@ -1,0 +1,100 @@
+.weapon__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.weapon__details__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+.weapon__detail {
+    background-color: #0D1820;
+    padding: 1rem;
+    border-radius: 8px;
+    img {
+        max-width: 50px;
+    }
+    p {
+        color: #808080;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+    }
+}
+.modal-content {
+    background-color: #0b1118;
+    .modal-title {
+        font-size: 32px;
+    }
+    .modal__gunSilhoutte {
+        max-width: 40%;
+    }
+}
+.weapon__container__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+h1 {
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 64px;
+    letter-spacing: 1px;
+}
+a {
+    color: #FFF;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    border-bottom: 2px solid #0b1118;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
+    font-size: 14px;
+    &:hover {
+        border-bottom: 2px solid #FFF;
+    }
+}
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+    color: #FFF;
+    text-decoration: none;
+}
+button {
+    padding: 4px 32px;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #FF4654;
+    border-radius: 8px;
+    color: #FF4654;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: #FF4654;
+        color: #FFF;
+    }
+}
+.searchbar__container {
+    padding: 2rem 0;
+    h1 {
+        color: #FFF;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 48px; 
+    }
+    input {
+        background-color: #0D1820;
+        border-radius: 8px;
+        padding: 12px;
+        border: none;
+        outline: none;
+        color: #FFF;
+    }
+}
+@media screen and (min-width: 768px) {
+    .modal-footer {
+        button {
+            width: fit-content;
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="skins__container__grid">
+        <ng-container *ngFor="let skin of skins_array">
+            <div class="skins__container mt-3 d-flex flex-column justify-content-between" *ngIf="skin.contentTierUuid != null">
+                <img src="{{ skin.displayIcon }}" alt="">
+                <h1 class="mt-4 mb-0">{{ skin.displayName }}</h1>
+            </div>
+        </ng-container>
+    </div>
+</div>
+<!-- View Chromas Modal -->
+<!-- <div class="container">
+    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLabel"></h1>
+            </div>
+            <div class="modal-body">
+                <ng-container *ngFor="let skin of skins_array">
+                    <ng-container *ngFor="let chroma of skin.chromas">
+                        <img src="{{ chroma.fullRender }}" alt="">
+                    </ng-container>
+                </ng-container>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-bs-dismiss="modal">Close</button>
+              </div>
+          </div>
+        </div>
+    </div>
+</div> -->

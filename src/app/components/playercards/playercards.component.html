@@ -1,0 +1,36 @@
+<div class="container mt-3 mb-3">
+    <div class="playercard__container__grid">
+        <div class="playercard__container" *ngFor="let card of cards_array">
+            <img src="{{ card.wideArt}}" alt="">
+            <div class="p-3">
+                <h1 class="mb-0">{{ card.displayName }}</h1>
+            </div>
+            <div class="ps-3 pe-3 pt-0 pb-3">
+                <button (click)="getSinglePlayerCard(card.uuid)">View Full Card</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- View Single Agent Modal -->
+<div class="container">
+    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <ng-container *ngFor="let card_info of single_card_array"> 
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">{{ card_info.displayName }}</h1>
+                    <img class="card__icon" src="{{ card_info.smallArt }}" alt="">
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img src="{{ card_info.largeArt }}" alt="">
+                    </div>
+                </div>
+            </ng-container>
+            <div class="modal-footer">
+              <button type="button" data-bs-dismiss="modal" (click)="closeSinglePlayerCard()">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

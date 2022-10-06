@@ -1,0 +1,55 @@
+.playercard__container__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+    gap: 24px;
+    .playercard__container {
+        background-color: #0D1820;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+    }
+}
+.card__icon {
+    max-width: 50px;
+    border-radius: 50% !important;
+}
+.modal-content {
+    background-color: #0D1820;
+    img {
+        border-radius: 8px;
+    }
+}
+button {
+    padding: 4px 32px;
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid #FF4654;
+    border-radius: 8px;
+    color: #FF4654;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
+    transition: all .3s ease-in-out;
+    &:hover {
+        background-color: #FF4654;
+        color: #FFF;
+    }
+}
+h1 {
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 32px;
+}
+@media screen and (min-width: 768px) {
+    .modal-footer {
+        button {
+            width: fit-content;
+        }
+    }
+}

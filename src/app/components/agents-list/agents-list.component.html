@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
+      <h1>Agents</h1>
+      <input [(ngModel)]="term" type="text" placeholder="Enter Agent name here">
+    </div>
+    <div class="agent__container__grid">
+      <ng-container *ngFor="let agent of agents_array | filter:term">
+        <div class="agent__container p-3" *ngIf="agent.isPlayableCharacter">
+          <div class="text-center">
+            <img src="{{ agent.displayIcon }}" alt="">
+          </div>
+          <div>
+              <h1 class="mt-4">{{ agent.displayName }}</h1>
+              <p class="mb-4">{{ agent.description }}</p>
+              <button (click)="getSingleAgent(agent.uuid)">View Details</button>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+</div>
+<!-- View Single Agent Modal -->
+<div class="container">
+    <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+          <div class="modal-content" *ngFor="let agent_info of single_agent_array">
+            <ng-container *ngFor="let role_info of role_array">
+                <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">{{ agent_info.displayName }}</h1>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    <img src="{{ agent_info.fullPortrait }}" alt="">
+                  </div>
+                  <div>
+                    <div class="d-flex align-items-center justify-content-between mt-4 mb-2">
+                      <h3 class="text-white ability_name mb-0">{{ role_info.displayName }}</h3>
+                      <img class="agent__fullPortrait" src="{{ role_info. displayIcon}}" alt="">
+                    </div>
+                    <p class="role_description">{{ role_info.description }}</p>
+                    <ng-container *ngFor="let agent_info of single_agent_array">
+                      <ng-container *ngFor="let ability of agent_info.abilities;">
+                        <div class="mt-4">
+                          <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h3 class="text-white ability_name mb-0">{{ ability.displayName }}</h3>
+                            <img class="ability_icon" src="{{ ability.displayIcon }}" alt="">
+                          </div>
+                          <p class="ability_description">{{ ability.description }}</p>
+                        </div>
+                      </ng-container>
+                    </ng-container>
+                  </div>
+                </div>
+            </ng-container>
+            <div class="modal-footer">
+              <button type="button" data-bs-dismiss="modal" (click)="closeSingleAgentModal()">Close</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
