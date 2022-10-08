@@ -1,13 +1,27 @@
 <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
+        <div class="d-flex gap-3 align-items-center">
+          <div>
+            <button class="back__btn" routerLink="/weapons">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <h1>Skins</h1>
+        </div>
+        <input [(ngModel)]="term" type="text" placeholder="Enter Skin name here">
+    </div>
     <div class="skins__container__grid">
-        <ng-container *ngFor="let skin of skins_array">
-            <div class="skins__container mt-3 d-flex flex-column justify-content-between" *ngIf="skin.contentTierUuid != null">
+        <ng-container *ngFor="let skin of skins_array | filter:term">
+            <div class="skins__container d-flex flex-column justify-content-between" *ngIf="skin.contentTierUuid != null">
                 <img src="{{ skin.displayIcon }}" alt="">
                 <h1 class="mt-4 mb-0">{{ skin.displayName }}</h1>
             </div>
         </ng-container>
     </div>
 </div>
+<button *ngIf="isShow" (click)="gotoTop()" class="scroll-top--btn">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>
 <!-- View Chromas Modal -->
 <!-- <div class="container">
     <div class="modal fade" data-bs-backdrop="static" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

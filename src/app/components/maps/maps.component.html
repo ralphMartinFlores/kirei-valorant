@@ -1,6 +1,13 @@
 <div class="container">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
-        <h1>Maps</h1>
+        <div class="d-flex gap-3 align-items-center">
+            <div>
+              <button class="back__btn" routerLink="/">
+                <i class="fa-solid fa-arrow-left"></i>
+              </button>
+            </div>
+            <h1>Maps</h1>
+          </div>
         <input [(ngModel)]="term" type="text" placeholder="Enter Map name here">
     </div>
     <div class="map__container__grid">
@@ -10,7 +17,7 @@
                 <div class="p-3">
                     <h1>{{ map.displayName }}</h1>
                     <p class="mb-4">{{ map.coordinates }}</p>
-                    <button (click)="getSingleMap(map.uuid)">View Details</button>
+                    <button class="ghost__button" (click)="getSingleMap(map.uuid)">View Details</button>
                 </div>
             </div>
         </ng-container>
@@ -38,7 +45,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" data-bs-dismiss="modal" (click)="closeSingleAgentModal()">Close</button>
+              <button class="ghost__button" type="button" data-bs-dismiss="modal" (click)="closeSingleAgentModal()">Close</button>
             </div>
           </div>
         </div>

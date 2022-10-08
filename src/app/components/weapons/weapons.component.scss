@@ -1,30 +1,28 @@
 .weapon__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    width: fit-content;
 }
 .weapon__details__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    gap: 0.75rem;
 }
 .weapon__detail {
-    background-color: #0D1820;
+    background-color: var(--clr-neverything);
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     img {
-        max-width: 50px;
+        max-width: 3.125rem;
     }
     p {
-        color: #808080;
-        font-family: 'Inter', sans-serif;
-        font-size: 14px;
+        color: var(--clr-gray);
+        font-family: var(--ff-inter);
+        font-size: 0.875em;
     }
 }
 .modal-content {
-    background-color: #0b1118;
+    background-color: var(--clr-background);
     .modal-title {
-        font-size: 32px;
+        font-size: 2em;
     }
     .modal__gunSilhoutte {
         max-width: 40%;
@@ -37,58 +35,59 @@
     padding-bottom: 2rem;
 }
 h1 {
-    color: white;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 64px;
+    color: var(--clr-whitelight);
+    font-family: var(--ff-bebas);
+    font-size: 4em;
     letter-spacing: 1px;
 }
 a {
-    color: #FFF;
+    color: var(--clr-whitelight);
     text-decoration: none;
-    font-family: 'Inter', sans-serif;
-    border-bottom: 2px solid #0b1118;
+    font-family: var(--ff-inter);
+    border-bottom: 2px solid var(--clr-background);
     transition: all .3s ease-in-out;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.875em;
     &:hover {
-        border-bottom: 2px solid #FFF;
+        border-bottom: 2px solid var(--clr-whitelight);
     }
 }
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
-    color: #FFF;
+    color: var(--clr-whitelight);
     text-decoration: none;
 }
-button {
-    padding: 4px 32px;
+.ghost__button {
+    padding: 0.25rem 2rem;
     width: 100%;
     background-color: transparent;
     outline: none;
-    border: 2px solid #FF4654;
-    border-radius: 8px;
-    color: #FF4654;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 20px;
+    border: 2px solid var(--clr-hotterthanhell);
+    border-radius: 0.5rem;
+    color: var(--clr-hotterthanhell);
+    font-family: var(--ff-bebas);
+    font-size: 1.25em;
     letter-spacing: 1px;
     transition: all .3s ease-in-out;
     &:hover {
-        background-color: #FF4654;
-        color: #FFF;
+        background-color: var(--clr-hotterthanhell);
+        color: var(--clr-whitelight);
     }
 }
 .searchbar__container {
     padding: 2rem 0;
     h1 {
-        color: #FFF;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 48px; 
+        color: var(--clr-whitelight);
+        font-family: var(--ff-bebas);
+        font-size: 3em; 
     }
     input {
-        background-color: #0D1820;
-        border-radius: 8px;
-        padding: 12px;
+        background-color: var(--clr-neverything);
+        border-radius: 0.5rem;
+        padding: 0.75rem;
         border: none;
         outline: none;
-        color: #FFF;
+        color: var(--clr-whitelight);
+        font-family: var(--ff-inter);
     }
 }
 @media screen and (min-width: 768px) {

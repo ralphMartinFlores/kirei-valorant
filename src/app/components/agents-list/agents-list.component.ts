@@ -1,6 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, HostListener, OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormControl } from '@angular/forms';
 declare var bootstrap: any;
 
 @Component({
@@ -15,11 +14,31 @@ export class AgentsListComponent implements OnInit {
   single_agent_array: any = [];
   role_array: any = [];
   term: any;
+  isShow: boolean;
+  topPosToStartShowing = 100;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getAgentsList();
+  }
+
+  @HostListener('window:scroll')
+  checkScroll() {
+  const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  gotoTop() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
   getAgentsList() {

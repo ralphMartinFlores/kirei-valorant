@@ -1,6 +1,17 @@
 <div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
+        <div class="d-flex gap-3 align-items-center">
+          <div>
+            <button class="back__btn" routerLink="/">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <h1>Bundles</h1>
+        </div>
+        <input [(ngModel)]="term" type="text" placeholder="Enter Bundle name here">
+      </div>
     <div class="bundles__container__grid">
-        <ng-container *ngFor="let bundle of bundles_array">
+        <ng-container *ngFor="let bundle of bundles_array | filter:term">
             <ng-container *ngIf="bundle.verticalPromoImage != null">
                 <div class="bundles__container">
                     <picture>
@@ -14,3 +25,6 @@
         </ng-container>
     </div>
 </div>
+<button *ngIf="isShow" (click)="gotoTop()" class="scroll-top--btn">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 declare var bootstrap: any;
 
@@ -12,11 +12,32 @@ export class PlayercardsComponent implements OnInit {
   baseurl = 'https://valorant-api.com/v1'; 
   cards_array: any = [];
   single_card_array: any = [];
+  term: any;
+  isShow: boolean;
+  topPosToStartShowing = 100;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.getPlayerCards();
+  }
+
+  @HostListener('window:scroll')
+  checkScroll() {
+  const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  gotoTop() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
   getPlayerCards() {

@@ -1,18 +1,25 @@
 <div class="container">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
-      <h1>Agents</h1>
+      <div class="d-flex gap-3 align-items-center">
+        <div>
+          <button class="back__btn" routerLink="/">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+        <h1>Agents</h1>
+      </div>
       <input [(ngModel)]="term" type="text" placeholder="Enter Agent name here">
     </div>
     <div class="agent__container__grid">
       <ng-container *ngFor="let agent of agents_array | filter:term">
-        <div class="agent__container p-3" *ngIf="agent.isPlayableCharacter">
+        <div class="agent__container d-flex flex-column justify-content-between p-3" *ngIf="agent.isPlayableCharacter">
           <div class="text-center">
             <img src="{{ agent.displayIcon }}" alt="">
           </div>
           <div>
               <h1 class="mt-4">{{ agent.displayName }}</h1>
               <p class="mb-4">{{ agent.description }}</p>
-              <button (click)="getSingleAgent(agent.uuid)">View Details</button>
+              <button (click)="getSingleAgent(agent.uuid)" class="ghost__button">View Details</button>
           </div>
         </div>
       </ng-container>
@@ -52,9 +59,12 @@
                 </div>
             </ng-container>
             <div class="modal-footer">
-              <button type="button" data-bs-dismiss="modal" (click)="closeSingleAgentModal()">Close</button>
+              <button class="ghost__button" type="button" data-bs-dismiss="modal" (click)="closeSingleAgentModal()">Close</button>
             </div>
           </div>
         </div>
     </div>
+    <button *ngIf="isShow" (click)="gotoTop()" class="scroll-top--btn">
+      <i class="fa-solid fa-chevron-up"></i>
+  </button>
 </div>

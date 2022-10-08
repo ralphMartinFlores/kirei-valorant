@@ -1,12 +1,23 @@
-<div class="container mt-3 mb-3">
+<div class="container">
+    <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center gap-3 searchbar__container">
+        <div class="d-flex gap-3 align-items-center">
+          <div>
+            <button class="back__btn" routerLink="/">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+          </div>
+          <h1>Player Cards</h1>
+        </div>
+        <input [(ngModel)]="term" type="text" placeholder="Enter Card name here">
+      </div>
     <div class="playercard__container__grid">
-        <div class="playercard__container" *ngFor="let card of cards_array">
+        <div class="playercard__container" *ngFor="let card of cards_array | filter:term">
             <img src="{{ card.wideArt}}" alt="">
             <div class="p-3">
                 <h1 class="mb-0">{{ card.displayName }}</h1>
             </div>
             <div class="ps-3 pe-3 pt-0 pb-3">
-                <button (click)="getSinglePlayerCard(card.uuid)">View Full Card</button>
+                <button class="ghost__button" (click)="getSinglePlayerCard(card.uuid)">View Full Card</button>
             </div>
         </div>
     </div>
@@ -28,9 +39,12 @@
                 </div>
             </ng-container>
             <div class="modal-footer">
-              <button type="button" data-bs-dismiss="modal" (click)="closeSinglePlayerCard()">Close</button>
+              <button class="ghost__button" type="button" data-bs-dismiss="modal" (click)="closeSinglePlayerCard()">Close</button>
             </div>
           </div>
         </div>
     </div>
 </div>
+<button *ngIf="isShow" (click)="gotoTop()" class="scroll-top--btn">
+    <i class="fa-solid fa-chevron-up"></i>
+</button>

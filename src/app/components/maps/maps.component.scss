@@ -1,62 +1,63 @@
-button {
+.ghost__button {
     padding: 4px 32px;
     width: 100%;
     background-color: transparent;
     outline: none;
-    border: 2px solid #FF4654;
+    border: 2px solid var(--clr-hotterthanhell);
     border-radius: 8px;
-    color: #FF4654;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 20px;
+    color: var(--clr-hotterthanhell);
+    font-family: var(--ff-bebas);
+    font-size: 1.25em;
     letter-spacing: 1px;
     transition: all .3s ease-in-out;
     &:hover {
-        background-color: #FF4654;
-        color: #FFF;
+        background-color: var(--clr-hotterthanhell);
+        color: var(--clr-whitelight);
     }
 }
 p {
-    color: gray;
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    color: var(--clr-gray);
+    font-family: var(--ff-inter);
+    font-size: 0.875em;
 }
 .map__container {
-    background-color: #0D1820;
-    border-radius: 8px;
+    background-color: var(--clr-neverything);
+    border-radius: 0.5rem;
     width: fit-content;
     h1 {
-        font-family: 'Bebas Neue', cursive;
-        font-size: 48px;
-        color: #FFF;
+        font-family: var(--ff-bebas);
+        font-size: 3em;
+        color: var(--clr-whitelight);
         letter-spacing: 1px;
     }
     img {
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+        border-top-left-radius: 0.5rem;
+        border-top-right-radius: 0.5rem;
     }
 }
 .searchbar__container {
     padding: 2rem 0;
     h1 {
-        color: #FFF;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 48px; 
+        color: var(--clr-whitelight);
+        font-family: var(--ff-bebas);
+        font-size: 3em; 
     }
     input {
-        background-color: #0D1820;
-        border-radius: 8px;
-        padding: 12px;
+        background-color: var(--clr-neverything);
+        border-radius: 0.5rem;
+        padding: 0.75rem;
         border: none;
         outline: none;
-        color: #FFF;
+        color: var(--clr-whitelight);
+        font-family: var(--ff-inter);
     }
 }
 .modal-content {
-    background-color: #0D1820;
+    background-color: var(--clr-neverything);
     h1 {
-        color: #FFF;
-        font-family: 'Bebas Neue', cursive;
-        font-size: 32px;
+        color: var(--clr-whitelight);
+        font-family: var(--ff-bebas);
+        font-size: 2rem;
     }
     button {
         width: fit-content;
@@ -64,12 +65,12 @@ p {
     .callout__container {
         padding: 1rem;
         border: 1px solid rgba(255,255,255,.2);
-        border-radius: 8px;
+        border-radius: 0.5rem;
     }
 }
 .modal-body {
     img {
-        border-radius: 8px;
+        border-radius: 0.5rem;
     }
 }
 .map__container__grid, .callout__container__grid {
@@ -79,5 +80,5 @@ p {
     padding-bottom: 2rem;
 }
 .callout__container__grid {
-    padding-top: 24px;
+    padding-top: 1.5rem;
 }

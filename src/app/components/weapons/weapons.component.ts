@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 declare var bootstrap: any;
@@ -16,11 +16,31 @@ export class WeaponsComponent implements OnInit {
   single_weapon_array: any = [];
   view_skin_weapon_array: any = [];
   term: any;
+  isShow: boolean;
+  topPosToStartShowing = 100;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.getWeaponsList();
+  }
+
+  @HostListener('window:scroll')
+  checkScroll() {
+  const scrollPosition = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (scrollPosition >= this.topPosToStartShowing) {
+      this.isShow = true;
+    } else {
+      this.isShow = false;
+    }
+  }
+
+  gotoTop() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
   getWeaponsList() {
